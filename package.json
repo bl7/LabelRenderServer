@@ -1,0 +1,31 @@
+{
+  "name": "label-render-server",
+  "version": "1.0.0",
+  "description": "Standalone label rendering server for mobile printing",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "install:browsers": "npx playwright install chromium",
+    "postinstall": "npx playwright install chromium"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "playwright": "^1.58.2",
+    "sharp": "^0.33.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/cors": "^2.8.17",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
+
