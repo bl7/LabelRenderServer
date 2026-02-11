@@ -25,7 +25,7 @@ npx playwright install chromium
 npm run dev
 ```
 
-Server runs on `http://localhost:3002`
+Server runs on `http://localhost:5002`
 
 ## Production
 

@@ -2,7 +2,7 @@
 
 ## Base URL
 ```
-http://your-server-host:3002
+http://your-server-host:5002
 ```
 
 ## Endpoint
@@ -716,7 +716,7 @@ All requests **MUST** include:
 
 ```javascript
 // Example in JavaScript/TypeScript
-const response = await fetch('http://your-server:3002/print-label', {
+const response = await fetch('http://your-server:5002/print-label', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -777,7 +777,7 @@ Always check the response status and handle errors:
 
 ```javascript
 try {
-  const response = await fetch('http://your-server:3002/print-label', {
+  const response = await fetch('http://your-server:5002/print-label', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(requestData)
@@ -854,4 +854,5 @@ GET /health
 ## Support
 
 For issues or questions, check server logs or contact the development team.
+
 
