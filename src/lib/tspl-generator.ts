@@ -55,14 +55,21 @@ export function generateTSPLSetup(config: TSPLConfig): string {
 /**
  * Generates TSPL BITMAP command with binary data
  * Note: The bitmap data must be appended as binary, not as part of the command string
+ *
+ * TSPL syntax (for TSC printers):
+ *   BITMAP x, y, width_bytes, height, mode, bitmap_data
+ *
+ * - width_bytes: number of BYTES per row (8 pixels per byte)
+ * - height: number of rows (pixels)
+ * - mode: 0 = overwrite, 1 = OR, 2 = XOR, 3 = inverse, etc. (we use 0)
  */
 export function generateTSPLBitmapCommand(bitmap: TSPLBitmapData): string {
   const { widthBytes, heightPx, x = 0, y = 0 } = bitmap
 
-  // BITMAP command: x, y, mode, width_bytes, height, bitmap_data
-  // Mode 0 = normal, 1 = rotated
+  // BITMAP command: x, y, width_bytes, height, mode, bitmap_data
   // Width is in bytes (8 pixels per byte), height is in pixels
-  return `BITMAP ${x}, ${y}, 0, ${widthBytes}, ${heightPx}\n`
+  // Mode 0 = overwrite
+  return `BITMAP ${x}, ${y}, ${widthBytes}, ${heightPx}, 0\n`
 }
 
 /**
