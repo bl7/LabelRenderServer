@@ -159,6 +159,9 @@ app.post("/print-label", async (req: Request, res: Response) => {
     // Encode to Base64
     const tsplBase64 = tsplBuffer.toString("base64")
 
+    // Optionally include PNG as Base64 for debugging/preview
+    const pngBase64 = request.debugPngBase64 ? pngBuffer.toString("base64") : undefined
+
     // Return response
     const response: MobilePrintResponse = {
       tsplBase64,
@@ -167,6 +170,7 @@ app.post("/print-label", async (req: Request, res: Response) => {
         width: widthMm,
         height: heightMm,
       },
+      pngBase64,
     }
 
     console.log(`✅ Label generated: ${response.labelType} (${widthMm}x${heightMm}mm, ${tsplBase64.length} bytes)`)

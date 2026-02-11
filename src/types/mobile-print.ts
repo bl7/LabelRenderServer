@@ -56,6 +56,11 @@ export interface MobilePrintRequest {
   
   // Print options
   copies?: number
+  /**
+   * If true, the server will include the rendered PNG as Base64 in the response
+   * for debugging/preview purposes.
+   */
+  debugPngBase64?: boolean
   
   // Printer configuration
   printer: MobilePrintPrinter
@@ -73,6 +78,10 @@ export interface MobilePrintResponse {
     width: number
     height: number
   }
+  /**
+   * Optional Base64-encoded PNG of the rendered label (for debugging/preview)
+   */
+  pngBase64?: string
 }
 
 export interface MobilePrintError {
